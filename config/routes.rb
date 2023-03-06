@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  get "/products", controller: "products", action: "index"
 
-  # Defines the root path route ("/")
-  # root "articles#index"
-end
+
+  get "products/:id", controller: "products", action: "show"
+
+  post "/products" => "products#create"
+
+  patch "/products/:id" => "products#update"
+
+  delete "/products/:id" => "products#destroy"
+end 
