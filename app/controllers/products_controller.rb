@@ -10,10 +10,14 @@ class ProductsController < ApplicationController
   end  
 
   def create
-    @product = Product.create( name: "Hat", price: 45, image_url: "https://media.dior.com/couture/ecommerce/media/catalog/product/0/K/1666366343_31REV920X131_C588_E03_GHC.jpg?imwidth=800", description: "Womens hat")
-    @product.save
-    render :show
-
+    @product = Product.create( name: params[:name], price: params[:price], image_url: params[:image_url], description: params[:description], quantity: params[:quantity])
+    if @product.valid?
+      render :show
+    else
+      render json: {errors: @product.errors.full_messages},
+      status: unprocessable_entity
+    end  
+    
   end
 
   def update
@@ -24,7 +28,12 @@ class ProductsController < ApplicationController
       image_url: params[:image_url] || @product.image_url,
       description: params[:description] || @product.description
     )
+    if @product.valid?
     render :show
+    else
+      render json: {errors: @product.errors.full_messages}
+      status: unprocessable_entity
+    end  
   end  
 
   def destroy
