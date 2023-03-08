@@ -14,11 +14,12 @@
 # product = Product.new(name: "Skirt", price: 90, image_url: "https://assets.burberry.com/is/image/Burberryltd/57716574-0094-4B23-940A-9D21534F70BE?$BBY_V2_ML_3x4$&wid=1151&hei=1535", description: "Womens wool pencil skirt")
 # product.save
 
-supplier = Supplier.new(name: "Amiri", email: "amiri@example.com", phone_number: "757-121-2121")
-supplier.save
+# supplier = Supplier.new(name: "Amiri", email: "amiri@example.com", phone_number: "757-121-2121")
+# supplier.save
 
-supplier = Supplier.new(name: "Christian Dior", email: "dior@example.com", phone_number: "757-232-3232")
-supplier.save
+# supplier = Supplier.new(name: "Christian Dior", email: "dior@example.com", phone_number: "757-232-3232")
+# supplier.save
 
-supplier = Supplier.new(name: "Burberry", email: "burberry@example.com", phone_number: "757-343-4343")
-supplier.save
+# supplier = Supplier.new(name: "Burberry", email: "burberry@example.com", phone_number: "757-343-4343")
+# supplier.save
+

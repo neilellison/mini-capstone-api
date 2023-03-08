@@ -10,7 +10,7 @@ class ProductsController < ApplicationController
   end  
 
   def create
-    @product = Product.create( name: params[:name], price: params[:price], image_url: params[:image_url], description: params[:description], quantity: params[:quantity])
+    @product = Product.create( name: params[:name], price: params[:price], description: params[:description], quantity: params[:quantity])
     if @product.valid?
       render :show
     else
@@ -19,6 +19,7 @@ class ProductsController < ApplicationController
     end  
     
   end
+
 
   def update
     @product = Product.find_by(id: params[:id])
