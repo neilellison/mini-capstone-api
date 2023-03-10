@@ -1,0 +1,11 @@
+POST http://localhost:3000/users.localhost:3000/products.json
+
+{
+  "name": "John",
+  "email": "john@example.com",
+  "password": "password",
+  "password_confirmation": "password"
+}
+
+###
+

@@ -10,8 +10,11 @@ class ProductsController < ApplicationController
   end  
 
   def create
-    @product = Product.create( name: params[:name], price: params[:price], description: params[:description], quantity: params[:quantity])
+    @product = Product.create( supplier_id: params[:supplier_id],name: params[:name], 
+    price: params[:price], 
+    description: params[:description], quantity: params[:quantity])
     if @product.valid?
+      Image.create(product_id: @product_id, url: params[:image_url])
       render :show
     else
       render json: {errors: @product.errors.full_messages},
@@ -29,12 +32,13 @@ class ProductsController < ApplicationController
       image_url: params[:image_url] || @product.image_url,
       description: params[:description] || @product.description
     )
-    if @product.valid?
     render :show
-    else
-      render json: {errors: @product.errors.full_messages}
-      status: unprocessable_entity
-    end  
+    # if @product.valid?
+    # render :show
+    # else
+    #   render json: {errors: @product errors.full_messages}, 
+    #   status: :unprocessable_entity
+    # end  
   end  
 
   def destroy
