@@ -1,4 +1,8 @@
 class ProductsController < ApplicationController
+
+  before_action :authenticate_admin!,
+  except: [:index, :show]
+
   def show
     @product = Product.find_by(id: params[:id])
     render :show
@@ -10,17 +14,17 @@ class ProductsController < ApplicationController
   end  
 
   def create
+    
     @product = Product.create( supplier_id: params[:supplier_id],name: params[:name], 
     price: params[:price], 
     description: params[:description], quantity: params[:quantity])
-    if @product.valid?
+      if @product.valid?
       Image.create(product_id: @product_id, url: params[:image_url])
       render :show
-    else
+      else
       render json: {errors: @product.errors.full_messages},
       status: unprocessable_entity
-    end  
-    
+      end  
   end
 
 
@@ -29,8 +33,8 @@ class ProductsController < ApplicationController
     @product.update(
       name: params[:name] || @product.name,
       price: params[:price] || @product.price,
-      image_url: params[:image_url] || @product.image_url,
       description: params[:description] || @product.description
+      quantity: params[:quantity] || @product.quantity,
     )
     render :show
     # if @product.valid?

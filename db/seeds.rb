@@ -23,6 +23,10 @@
 # supplier = Supplier.new(name: "Burberry", email: "burberry@example.com", phone_number: "757-343-4343")
 # supplier.save
 
-image = Image.create(url: "https://example.jpeg", product_id: 1)
+# image = Image.create(url: "https://example.jpeg", product_id: 1)
 
-image = Image.create(url: "https://example2.jpeg", product_id: 1)
+# image = Image.create(url: "https://example2.jpeg", product_id: 1)
+
+user = User.create(name: "Jim", email: "jim123@example.com", password_digest: "password")
+
+user = User.create(name: "Frank", email: "frank123@example.com", password_digest: "password1")
