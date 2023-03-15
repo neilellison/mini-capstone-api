@@ -10,6 +10,12 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.all
+
+    if params[:category]
+      category = Category.find_by(name: params[category])
+      @products = category.products
+    end
+      
     render :index
   end  
 
@@ -33,8 +39,8 @@ class ProductsController < ApplicationController
     @product.update(
       name: params[:name] || @product.name,
       price: params[:price] || @product.price,
-      description: params[:description] || @product.description
-      quantity: params[:quantity] || @product.quantity,
+      description: params[:description] || @product.description,
+      quantity: params[:quantity] || @product.quantity
     )
     render :show
     # if @product.valid?

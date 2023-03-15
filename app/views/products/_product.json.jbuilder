@@ -8,3 +8,4 @@ json.created_at product.created_at
 json.updated_at product.updated_at
 json.supplier product.supplier
 json.orders product.orders
+json.categories product.categories
