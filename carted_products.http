@@ -1,0 +1,18 @@
+@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE2NzkxNTcxNjl9.9KrYD3f7i3815M-5oDXGuI9aEAIICQpLcKIQE4K0Kkg
+
+POST http://localhost:3000/carted_products.json
+Authorization: Bearer {{jwt}}
+Content-Type: application/json
+
+{
+  "product_id": 1,
+  "quantity": 2
+}
+
+###
+GET http://localhost:3000/orders.json
+Authorization: Bearer {{jwt}}
+
+###
+GET http://localhost:3000/carted_products.json
+Authorization: Bearer {{jwt}}
